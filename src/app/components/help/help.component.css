@@ -1,0 +1,94 @@
+/* Help Center Container */
+.help-container {
+  width: 100%;
+  color: #2c3e50;
+  line-height: 1.8;
+  padding-bottom: 3rem;
+}
+
+/* Help Introduction */
+.help-intro {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+/* FAQ Section Container */
+.faq-section {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.faq-section h3 {
+  color: #3498db;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+/* FAQ Item Card */
+.faq-item {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item h4 {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: #34495e;
+}
+
+/* List Styles for Rules Section */
+.faq-section ul {
+  padding-left: 1.8rem;
+  margin: 0;
+}
+
+.faq-section li {
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+/* Strong Text Highlight */
+.faq-section strong {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .help-container {
+    padding-bottom: 4rem;
+  }
+
+  .faq-section {
+    padding: 1rem;
+  }
+
+  .faq-item {
+    padding: 1rem;
+  }
+
+  .help-intro, .faq-item p, .faq-section li {
+    font-size: 0.95rem;
+  }
+}

@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Application Styles
+ * PROG2005 A2 Part2
+ * Base styles for consistent UI across all components
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Global Button Resets */
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Global Link Resets */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Responsive Media Query Base */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}

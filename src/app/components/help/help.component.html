@@ -1,0 +1,102 @@
+<div class="help-container" fxLayout="column" fxLayoutGap="2rem" fxLayoutAlign="start stretch">
+  <!-- Page Heading -->
+  <h1>Help Center</h1>
+  <p class="help-intro">
+    Find answers to common questions and troubleshooting guidance for the Inventory Management System. 
+    If you encounter issues not listed here, please refer to the assessment documentation or contact your tutor.
+  </p>
+
+  <!-- Basic Usage FAQ -->
+  <div class="faq-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>1. Basic System Usage</h3>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: What devices and browsers does the system support?</h4>
+      <p>A: The system is a fully responsive web application supporting all modern browsers (Chrome 100+, Firefox 98+, Safari 15+, Edge 100+) 
+         on both desktop (Windows/Mac/Linux) and mobile (iOS/Android) devices. It is optimized for mobile screens (≤768px) with touch-friendly controls.</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: Is my inventory data saved permanently?</h4>
+      <p>A: No. The system uses <strong>session-persistent</strong> storage - all data is stored in your browser's memory only and will be deleted when 
+         you close the browser window/tab. No data is saved to your device or any server. For permanent storage, please record inventory data manually.</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: Can multiple users access the inventory data at the same time?</h4>
+      <p>A: No. The system is a client-side only application with no server-side data sharing. Each browser session has its own independent inventory data.</p>
+    </div>
+  </div>
+
+  <!-- Functional Operations Guide -->
+  <div class="faq-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>2. Functional Operations Guide</h3>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: How do I add a new inventory item?</h4>
+      <p>A: Navigate to the <strong>Inventory Operations</strong> page, fill in all required fields (marked with *) with valid values, 
+         select the correct category and stock status, and click the <strong>Submit</strong> button. Ensure the Item ID is unique (no duplicates).</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: How do I edit an existing inventory item?</h4>
+      <p>A: On the <strong>Inventory Operations</strong> page, enter the <strong>Item ID</strong> of the item you want to edit (the ID must exist), 
+         modify the desired fields (e.g., quantity, price), and click <strong>Submit</strong>. The system updates the item by its <strong>Item Name</strong> 
+         (case-insensitive matching).</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: How do I delete an inventory item?</h4>
+      <p>A: On the <strong>Inventory Operations</strong> page, find the item card you want to delete and click the <strong>Delete Item</strong> button. 
+         A confirmation prompt will appear - click <strong>OK</strong> to confirm deletion (this action cannot be undone).</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: How do I search and filter inventory items?</h4>
+      <p>A: Navigate to the <strong>Search & Filter</strong> page. Type a keyword in the <strong>Search by Item Name</strong> field for fuzzy name search 
+         (case-insensitive). Use the <strong>Filter by Category</strong> dropdown to filter items by exact category (select <strong>All</strong> for no filter). 
+         Results update in real-time as you type/select.</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: How do I mark an item as a "Popular Item"?</h4>
+      <p>A: When adding/editing an item on the <strong>Inventory Operations</strong> page, check the <strong>Popular Item</strong> checkbox. 
+         Popular items are marked with a red badge in all lists and displayed separately on the Search page.</p>
+    </div>
+  </div>
+
+  <!-- Common Errors & Troubleshooting -->
+  <div class="faq-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>3. Common Errors & Troubleshooting</h3>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: Why can't I submit the inventory form?</h4>
+      <p>A: The submit button is disabled if the form is invalid. Check for red error messages: all * marked fields are required, 
+         quantity/price must be non-negative numbers, and stock status must match the quantity rules (0=Out of Stock, 1-5=Low Stock, >5=In Stock).</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: Why does the stock status show an error?</h4>
+      <p>A: The system enforces automatic stock status validation. If your selected status does not match the quantity value, 
+         the form will reject the submission. Adjust the quantity or select the correct status as prompted.</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: Why is my new item not showing up?</h4>
+      <p>A: Ensure you clicked the <strong>Submit</strong> button and saw a green success message. If the item still does not appear, 
+         refresh the page or check if you used a duplicate Item ID (duplicate IDs will overwrite existing items).</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: The search function is not returning results?</h4>
+      <p>A: The search is case-insensitive and matches partial item names. Clear the search keyword and set the category to <strong>All</strong> 
+         to view all items. Check for spelling errors in your search keyword.</p>
+    </div>
+    <div class="faq-item" fxLayout="column" fxLayoutGap="0.5rem">
+      <h4>Q: The page layout is broken on mobile?</h4>
+      <p>A: The system uses responsive design. Clear your browser cache and ensure you are using a modern browser. 
+         The layout automatically adapts to screen sizes down to 320px (mobile phones).</p>
+    </div>
+  </div>
+
+  <!-- System Rules & Constraints -->
+  <div class="faq-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>4. System Rules & Constraints</h3>
+    <ul fxLayout="column" fxLayoutGap="0.75rem">
+      <li>Item ID must be unique (no duplicate values allowed).</li>
+      <li>Item Name is used for edit/delete operations (case-insensitive).</li>
+      <li>Quantity and price cannot be negative numbers.</li>
+      <li>Stock status is automatically validated based on quantity.</li>
+      <li>All data is reset when the browser is closed (no persistent storage).</li>
+      <li>Delete actions are permanent and cannot be reversed.</li>
+    </ul>
+  </div>
+</div>

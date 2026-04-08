@@ -1,0 +1,95 @@
+<div class="inventory-container">
+  <h1>Inventory Operations</h1>
+
+  <div *ngIf="feedback.message" class="feedback {{ feedback.type }}">
+    {{ feedback.message }}
+  </div>
+
+  <form [formGroup]="inventoryForm" (ngSubmit)="onSubmit()" class="inventory-form">
+    <h3>Add / Edit Inventory Item</h3>
+    <div class="form-row">
+      <div class="form-col">
+        <div class="form-group">
+          <label for="itemId">Item ID (Unique) *</label>
+          <input type="text" id="itemId" formControlName="itemId" placeholder="e.g., 001, INV004">
+          <div *ngIf="f['itemId'].invalid && f['itemId'].touched" class="error-msg">Item ID is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="itemName">Item Name *</label>
+          <input type="text" id="itemName" formControlName="itemName" placeholder="e.g., Laptop, Wooden Table">
+          <div *ngIf="f['itemName'].invalid && f['itemName'].touched" class="error-msg">Item Name is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <select id="category" formControlName="category">
+            <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity *</label>
+          <input type="number" id="quantity" formControlName="quantity" min="0" step="1" placeholder="0">
+          <div *ngIf="f['quantity'].invalid && f['quantity'].touched" class="error-msg">Please enter a non-negative number</div>
+        </div>
+      </div>
+
+      <div class="form-col">
+        <div class="form-group">
+          <label for="price">Price ($) *</label>
+          <input type="number" id="price" formControlName="price" min="0" step="0.01" placeholder="0.00">
+          <div *ngIf="f['price'].invalid && f['price'].touched" class="error-msg">Please enter a non-negative monetary value</div>
+        </div>
+
+        <div class="form-group">
+          <label for="supplierName">Supplier Name *</label>
+          <input type="text" id="supplierName" formControlName="supplierName" placeholder="e.g., Harvey Norman, Target">
+          <div *ngIf="f['supplierName'].invalid && f['supplierName'].touched" class="error-msg">Supplier Name is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="stockStatus">Stock Status *</label>
+          <select id="stockStatus" formControlName="stockStatus">
+            <option *ngFor="let status of stockStatuses" [value]="status">{{ status }}</option>
+          </select>
+        </div>
+
+        <div class="form-group checkbox">
+          <label for="isPopular">Popular Item</label>
+          <input type="checkbox" id="isPopular" formControlName="isPopular">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="comment">Item Comment (Optional)</label>
+      <textarea id="comment" formControlName="comment" rows="3" placeholder="Enter item notes/description..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="inventoryForm.invalid">Submit</button>
+  </form>
+
+  <div class="inventory-list">
+    <h3>Current Inventory Items</h3>
+    <div *ngIf="inventory.length === 0" class="no-data">No inventory items found. Please add your first item.</div>
+    <div class="item-grid">
+      <div class="item-card" *ngFor="let item of inventory">
+        <div class="item-header">
+          <h4>{{ item.itemName }}</h4>
+          <span class="badge" [ngClass]="{ popular: item.isPopular, normal: !item.isPopular }">
+            {{ item.isPopular ? 'Popular' : 'Regular' }}
+          </span>
+        </div>
+        <p><strong>ID:</strong> {{ item.itemId }}</p>
+        <p><strong>Category:</strong> {{ item.category }}</p>
+        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+        <p><strong>Price:</strong> ${{ item.price.toFixed(2) }}</p>
+        <p><strong>Supplier:</strong> {{ item.supplierName }}</p>
+        <p><strong>Stock Status:</strong> {{ item.stockStatus }}</p>
+        <p *ngIf="item.comment" class="comment"><strong>Comment:</strong> {{ item.comment }}</p>
+        <button class="delete-btn" (click)="deleteItem(item.itemName)">Delete Item</button>
+      </div>
+    </div>
+  </div>
+</div>

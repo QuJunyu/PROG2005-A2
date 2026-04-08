@@ -1,0 +1,43 @@
+<div class="home-container" fxLayout="column" fxLayoutGap="2rem" fxLayoutAlign="start stretch">
+  <!-- Page Heading -->
+  <h1>Welcome to Inventory Management System</h1>
+
+  <!-- Application Purpose (per assessment requirements) -->
+  <div class="app-desc" fxLayout="column" fxLayoutGap="1rem">
+    <h3>Application Purpose</h3>
+    <p>
+      This system is a lightweight, serverless inventory management solution developed with Angular and TypeScript, 
+      designed for retailers such as Harvey Norman. It enables efficient management of product inventory with core 
+      CRUD operations, popular item filtering, and name/category search functionality.
+    </p>
+    <p>
+      All data is stored <strong>session-persistent</strong> (lost on browser close) with no server-side interaction, 
+      ensuring local data security and fast operation. The system is fully responsive, supporting both mobile and desktop 
+      devices with an intuitive user interface.
+    </p>
+  </div>
+
+  <!-- Inventory Statistics Cards (Flex Layout - responsive wrap) -->
+  <div class="inventory-stats" fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="center center">
+    <div class="stat-card">
+      <h4>Total Inventory Items</h4>
+      <p class="stat-value">{{ totalItems }}</p>
+    </div>
+    <div class="stat-card">
+      <h4>Popular Items</h4>
+      <p class="stat-value">{{ popularItems }}</p>
+    </div>
+    <div class="stat-card">
+      <h4>Out of Stock Items</h4>
+      <p class="stat-value">{{ outOfStockItems }}</p>
+    </div>
+  </div>
+
+  <!-- Quick Navigation Buttons (Flex Layout - responsive wrap) -->
+  <div class="quick-nav" fxLayout="row wrap" fxLayoutGap="1rem" fxLayoutAlign="center center">
+    <a routerLink="inventory" class="nav-btn">Inventory Operations</a>
+    <a routerLink="search" class="nav-btn">Search & Filter</a>
+    <a routerLink="privacy-security" class="nav-btn">Privacy & Security</a>
+    <a routerLink="help" class="nav-btn">Help Center</a>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="privacy-container" fxLayout="column" fxLayoutGap="2rem" fxLayoutAlign="start stretch">
+  <!-- Page Heading -->
+  <h1>Privacy & Security for Mobile Inventory Apps</h1>
+
+  <!-- Core Security Requirements Section -->
+  <div class="security-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>1. Core Privacy & Security Requirements for Mobile Apps</h3>
+    <p>
+      This inventory management system is a mobile web application designed for retail business use, handling 
+      commercial data including product pricing, supplier information and inventory stock levels. As such, it must 
+      comply with global and regional privacy and security standards, including the <em>Australian Privacy Act 1988</em> 
+      (OAIC, 2024) and the US Federal Trade Commission (FTC) <em>Mobile App Developers: Start with Security</em> 
+      guidelines (FTC, 2023).
+    </p>
+    <p>
+      The primary security objectives for this application are to protect commercial data from unauthorized access, 
+      prevent data tampering or loss, and ensure transparency in data handling. All user data is processed locally 
+      with no server-side interaction, eliminating network transmission risks and aligning with mobile app privacy 
+      best practices.
+    </p>
+  </div>
+
+  <!-- Security Implementation Measures Section -->
+  <div class="security-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>2. Security Implementation in This System</h3>
+    <ul fxLayout="column" fxLayoutGap="0.75rem">
+      <li><strong>Session-Only Data Storage</strong>: All inventory data is stored in browser memory only (session-persistent) 
+          and deleted when the browser is closed. No data is saved to LocalStorage, Cookies or other local storage mechanisms, 
+          preventing unauthorized access to stored data on shared devices.</li>
+      <li><strong>Strict Input Validation</strong>: All user inputs undergo multi-layer validation (required fields, non-negative 
+          numeric values, stock status logic) to prevent injection attacks and invalid data entry that could corrupt the inventory.</li>
+      <li><strong>Immutable Data Design</strong>: The InventoryService returns copies of inventory data (not direct references) 
+          to prevent accidental or malicious modification of the source data structure, ensuring data integrity.</li>
+      <li><strong>Serverless Architecture</strong>: No server-side API calls or data transmission eliminate risks of man-in-the-middle 
+          attacks, data interception and server-side data breaches.</li>
+      <li><strong>Responsive Design Security</strong>: The mobile-optimized interface hides no sensitive data and all CRUD operations 
+          require explicit user action, preventing accidental data modification on touch-based mobile devices.</li>
+    </ul>
+  </div>
+
+  <!-- Best Practices Section -->
+  <div class="security-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>3. Mobile App Privacy & Security Best Practices</h3>
+    <ul fxLayout="column" fxLayoutGap="0.75rem">
+      <li>Encrypt sensitive commercial data with AES-256 if local storage (e.g., LocalStorage) is implemented for long-term persistence.</li>
+      <li>Add user authentication (e.g., username/password, biometrics) to restrict access to the inventory system on shared mobile devices.</li>
+      <li>Provide a clear privacy policy that discloses data handling practices, including storage location, data retention and access controls.</li>
+      <li>Regularly update Angular and TypeScript dependencies to patch known security vulnerabilities (e.g., XSS, CSRF).</li>
+      <li>Implement touch event safeguards for mobile devices to prevent accidental CRUD operations (e.g., confirm buttons for delete actions).</li>
+      <li>Add data backup functionality for critical inventory data to prevent loss from browser closure or device failure.</li>
+    </ul>
+  </div>
+
+  <!-- APA7 References Section (ULO4 Requirement) -->
+  <div class="reference-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>4. References (APA 7th Edition)</h3>
+    <p class="reference">
+      Office of the Australian Information Commissioner. (2024). <em>Mobile privacy: A better practice guide for mobile app developers</em>. 
+      <a href="https://www.oaic.gov.au/resources/agencies-and-organisations/guides/guide-for-mobile-app-developers.pdf" target="_blank">
+        https://www.oaic.gov.au/resources/agencies-and-organisations/guides/guide-for-mobile-app-developers.pdf
+      </a>
+    </p>
+    <p class="reference">
+      Federal Trade Commission. (2023). <em>Mobile App Developers: Start with Security</em>. 
+      <a href="https://www.ftc.gov/tips-advice/business-center/guidance/app-developers-start-security" target="_blank">
+        https://www.ftc.gov/tips-advice/business-center/guidance/app-developers-start-security
+      </a>
+    </p>
+  </div>
+</div>

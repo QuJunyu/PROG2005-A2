@@ -1,0 +1,54 @@
+<div class="search-container" fxLayout="column" fxLayoutGap="2rem" fxLayoutAlign="start stretch">
+  <!-- Page Heading -->
+  <h1>Search & Filter Inventory</h1>
+
+  <!-- Search & Filter Form (Reactive Form - Flex Layout) -->
+  <form [formGroup]="searchForm" class="search-form" fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="center center">
+    <div class="form-group" fxFlex="1 1 300px">
+      <label for="keyword">Search by Item Name</label>
+      <input type="text" id="keyword" formControlName="keyword" placeholder="Type to search (e.g., Laptop, Table)">
+    </div>
+    <div class="form-group" fxFlex="1 1 200px">
+      <label for="category">Filter by Category</label>
+      <select id="category" formControlName="category">
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+  </form>
+
+  <!-- Search Results Section -->
+  <div class="results-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>Search Results ({{ searchResults.length }} items)</h3>
+    <div class="item-list" fxLayout="row wrap" fxLayoutGap="1.5rem" fxLayoutAlign="start stretch">
+      <div *ngIf="searchResults.length === 0" class="no-data">No items match your search/filter criteria.</div>
+      <!-- Search Result Item Card -->
+      <div class="item-card" fxLayout="column" fxLayoutGap="0.5rem" fxFlex="1 1 300px" *ngFor="let item of searchResults">
+        <h4>{{ item.itemName }} (ID: {{ item.itemId }})</h4>
+        <p><strong>Category:</strong> {{ item.category }}</p>
+        <p><strong>Price:</strong> ${{ item.price.toFixed(2) }}</p>
+        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+        <p><strong>Stock Status:</strong> {{ item.stockStatus }}</p>
+        <p><strong>Supplier:</strong> {{ item.supplierName }}</p>
+        <span class="badge" [ngClass]="{ popular: item.isPopular, normal: !item.isPopular }">
+          {{ item.isPopular ? 'Popular' : 'Regular' }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Items Section (Fixed - no filter) -->
+  <div class="popular-section" fxLayout="column" fxLayoutGap="1rem">
+    <h3>Popular Items ({{ popularItems.length }} items)</h3>
+    <div class="item-list" fxLayout="row wrap" fxLayoutGap="1.5rem" fxLayoutAlign="start stretch">
+      <div *ngIf="popularItems.length === 0" class="no-data">No popular items marked in inventory.</div>
+      <!-- Popular Item Card -->
+      <div class="item-card popular-card" fxLayout="column" fxLayoutGap="0.5rem" fxFlex="1 1 300px" *ngFor="let item of popularItems">
+        <h4>{{ item.itemName }} (ID: {{ item.itemId }})</h4>
+        <p><strong>Category:</strong> {{ item.category }}</p>
+        <p><strong>Price:</strong> ${{ item.price.toFixed(2) }}</p>
+        <p><strong>Stock Status:</strong> {{ item.stockStatus }}</p>
+        <div class="popular-badge">Popular Item</div>
+      </div>
+    </div>
+  </div>
+</div>

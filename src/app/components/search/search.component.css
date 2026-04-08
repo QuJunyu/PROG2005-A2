@@ -1,0 +1,148 @@
+/* Search & Filter Container */
+.search-container {
+  width: 100%;
+  color: #2c3e50;
+}
+
+/* Search Form */
+.search-form {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Results & Popular Sections */
+.results-section, .popular-section {
+  width: 100%;
+}
+
+h3 {
+  color: #3498db;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+/* Item List */
+.item-list {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* No Data Message */
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 1.1rem;
+  width: 100%;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Item Card */
+.item-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item-card h4 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.5rem;
+}
+
+/* Popular/Regular Badge */
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.badge.popular {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.badge.normal {
+  background-color: #95a5a6;
+  color: white;
+}
+
+/* Popular Item Card */
+.popular-card {
+  border-left: 4px solid #e74c3c;
+}
+
+.popular-badge {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .search-form {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+
+  .item-card {
+    width: 100%;
+  }
+}
