@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeScript Inventory Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Inventory Management System (TypeScript)</h1>
+    <!-- Feedback area (replace alert with innerHTML - assignment requirement) -->
+    <div id="feedback" class="feedback"></div>
+
+    <!-- Inventory Item Form (Add/Edit) -->
+    <form id="inventoryForm" class="inventory-form">
+      <h3>Add / Edit Inventory Item</h3>
+      <div class="form-group">
+        <label for="itemId">Item ID (Unique):</label>
+        <input type="text" id="itemId" required placeholder="e.g. 001, INV003">
+      </div>
+      <div class="form-group">
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" required placeholder="e.g. Laptop, Wooden Chair">
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" required>
+          <option value="Electronics">Electronics</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Tools">Tools</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="0" required placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="price">Price ($):</label>
+        <input type="number" id="price" min="0" step="0.01" required placeholder="0.00">
+      </div>
+      <div class="form-group">
+        <label for="supplierName">Supplier Name:</label>
+        <input type="text" id="supplierName" required placeholder="e.g. Harvey Norman, Amazon">
+      </div>
+      <div class="form-group">
+        <label for="stockStatus">Stock Status:</label>
+        <select id="stockStatus" required>
+          <option value="In Stock">In Stock</option>
+          <option value="Low Stock">Low Stock</option>
+          <option value="Out of Stock">Out of Stock</option>
+        </select>
+      </div>
+      <div class="form-group checkbox">
+        <label for="isPopular">Is Popular Item:</label>
+        <input type="checkbox" id="isPopular">
+      </div>
+      <div class="form-group">
+        <label for="comment">Item Comment (Optional):</label>
+        <textarea id="comment" rows="3" placeholder="Enter item description or notes..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <h3>Search Inventory</h3>
+      <input type="text" id="searchInput" placeholder="Search by item name...">
+    </div>
+
+    <!-- All Inventory Items Section -->
+    <div class="inventory-section">
+      <h3>All Inventory Items</h3>
+      <div id="inventoryList" class="item-list"></div>
+    </div>
+
+    <!-- Popular Items Section -->
+    <div class="popular-section">
+      <h3>Popular Items</h3>
+      <div id="popularList" class="item-list"></div>
+    </div>
+  </div>
+
+  <!-- Import compiled TS code (auto-generated) -->
+  <script src="compiled/app.js"></script>
+</body>
+</html>
